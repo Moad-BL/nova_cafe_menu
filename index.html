@@ -10,16 +10,21 @@
       --brown: #8a5a3b;
       --bg: #fbfaf8;
     }
+
+    /* تحسين تجربة التمرير */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body{
       margin:0;
       font-family:"Segoe UI", Tahoma, Arial, "Noto Kufi Arabic", sans-serif;
-      background:linear-gradient(180deg,var(--bg),#f2f2f1);
-      color:#222;
-      -webkit-font-smoothing:antialiased;
+      background:var(--bg);
       display:flex;
       flex-direction:column;
       align-items:center;
     }
+
     header{
       width:100%;
       background: linear-gradient(90deg,var(--turquoise),var(--brown));
@@ -29,25 +34,39 @@
       font-weight:700;
       font-size:20px;
       box-shadow:0 3px 12px rgba(0,0,0,0.08);
+      position:sticky;
+      top:0;
+      z-index:10;
     }
+
     .menu-img{
       width:90%;
       max-width:920px;
-      margin:20px 0;
+      margin:30px 0; /* تباعد أفضل بين الصور */
       border-radius:12px;
-      box-shadow:0 4px 18px rgba(0,0,0,0.06);
-      cursor:pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow:0 6px 22px rgba(0,0,0,0.08);
+      display:block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    /* تأثير عند المرور على الصور */
     .menu-img:hover{
       transform: scale(1.01);
-      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+      box-shadow:0 10px 28px rgba(0,0,0,0.15);
     }
+
     footer{
       text-align:center;
       font-size:13px;
       color:#666;
-      padding:18px 6px;
+      padding:24px 6px;
+    }
+
+    @media (max-width:600px){
+      .menu-img{
+        width:95%;
+        margin:20px 0;
+      }
     }
   </style>
 </head>
@@ -62,14 +81,5 @@
   <footer>
     © <strong>NOVA CAFE</strong> — مسح الـQR يفتح هذا المنيو. لتحديث المنيو: استبدل ملفات الصور في مجلد <code>/images</code>.
   </footer>
-
-  <script>
-    // فتح الصورة بالحجم الكامل عند الضغط عليها
-    document.querySelectorAll('.menu-img').forEach(img=>{
-      img.addEventListener('click', ()=>{
-        window.open(img.src, '_blank');
-      });
-    });
-  </script>
 </body>
 </html>
