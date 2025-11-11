@@ -59,7 +59,6 @@
       max-height:78vh;
       object-fit:contain;
     }
-    /* image list for thumbnails on wide screens */
     .thumbs{
       display:flex;
       gap:10px;
@@ -89,7 +88,6 @@
       color:#666;
       padding:18px 6px;
     }
-    /* responsive */
     @media (min-width:880px){
       .card img{max-width:820px}
     }
@@ -101,15 +99,12 @@
   </header>
 
   <main>
-    <!-- عرض الصورة الكبيرة -->
     <div class="card" id="viewer">
       <img id="mainImage" src="images/menu1.jpeg" alt="منيو NOVA CAFE">
     </div>
 
-    <!-- ملاحظة قصيرة -->
     <div class="note">اضغط على أي صورة لعرضها بالحجم الكامل. لتحميل منيو جديد استبدل ملفات الصور في مجلد <code>/images</code>.</div>
 
-    <!-- مصغرات الصور (ضع/غير أسماء الصور حسب ما رفعتها) -->
     <div class="thumbs">
       <img src="images/menu1.jpeg" alt="صفحة 1" data-full="images/menu1.jpeg">
       <img src="images/menu2.jpeg" alt="صفحة 2" data-full="images/menu2.jpeg">
@@ -121,7 +116,6 @@
     © <strong>NOVA CAFE</strong> — مسح الـQR يفتح هذا المنيو. لتحديث المنيو: استبدل ملفات الصور في مجلد <code>/images</code>.
   </footer>
 
-  <!-- سلوك بسيط لتغيير الصورة عند الضغط على المصغرات -->
   <script>
     (function(){
       const main = document.getElementById('mainImage');
@@ -129,11 +123,9 @@
         t.addEventListener('click', ()=>{
           const full = t.dataset.full || t.src;
           main.src = full;
-          // لتجربة فتح الصورة في نافذة جديدة عند نقر مطوّل (اختياري)
         });
       });
 
-      // يسمح للمستخدم بالضغط على الصورة لفتحها في تبويب جديد بالحجم الكامل
       main.addEventListener('click', ()=>{
         window.open(main.src, '_blank');
       });
